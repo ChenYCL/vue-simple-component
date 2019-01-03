@@ -6,7 +6,7 @@
         ref="drag_dot"
         @drag="dragEvent($event)"
         :value="value"
-        :style="`transform: translateX(${value}%)`"
+        :style="`left:${value}%`"
       ></span>
       <span
         class="dot"
@@ -134,7 +134,7 @@ export default {
       background: red;
       border-radius: 50%;
       transform: translate3d(-25%, -25%, 0px);
-      left: 0;
+      left: 0%;
       cursor: pointer;
     }
     .dot {
