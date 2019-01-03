@@ -7,14 +7,20 @@
         <span class="content-sms" slot="content">短信验证码</span>
       </sms>
     </div>
+
+    <div>
+      <slider value=35></slider>
+    </div>
   </div>
 </template>
 <script>
 import sms from "../components/smsCountDown";
+import slider from '../components/slider'
 export default {
   name: "index",
   components: {
-    sms
+    sms,
+    slider
   },
   methods: {
     smsSend() {
