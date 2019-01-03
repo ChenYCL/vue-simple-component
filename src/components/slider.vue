@@ -91,11 +91,17 @@ export default {
     },
     mobileEventBind() {
       this.$refs.drag_dot.addEventListener("touchmove", event => {
-        // this.value =
         console.log(event.touches[0]);
+        // console.log(this.$refs.drag_dot)
         let PosiX = event.touches[0].clientX;
-        console.log(PosiX - this.DOMRect.x);
-        this.value = PosiX - this.DOMRect.x;
+        console.log(PosiX-this.DOMRect.x,this.DOMRect.width,this.DOMRect.x);
+        let percent = Math.floor((PosiX-this.DOMRect.x)/this.DOMRect.width*100);
+        if(percent>100){
+            percent  = 100;
+        }else if(percent<0){
+            percent = 0;
+        }
+        this.value = percent
       });
     },
     interClick(_value) {
