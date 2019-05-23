@@ -25,7 +25,7 @@
         <p style="color: red">5.短信验证码倒计时</p>
         <div>
             <sms :ms="60" @fn="smsSend">
-                <span class="content-sms" slot="content">短信验证码</span>
+                <span slot="content" style="color: green">获取验证码</span>
             </sms>
         </div>
 
@@ -81,18 +81,7 @@
   };
 </script>
 <style scoped lang="scss">
-    .content-sms {
-        display: inline-block;
-        position: absolute;
-        /*width: 10%;*/
-        top: 33px;
-        right: 15px;
-        border-left: 1px solid #cccccc;
-        padding-left: 20px;
-        padding-right: 10px;
-        color: green;
-        cursor: pointer;
-    }
+
 
     .input {
         padding: 15px;
