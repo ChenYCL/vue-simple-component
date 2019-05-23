@@ -184,7 +184,7 @@ e.g:
       }
 ```
 
-## sheet
+## bootom-sheet
 ```JavaScript
     e.g 默认
     <sheet ref="sheet" :data=["1","2","3"] @select="choose" @confirm="sheetChoose"/>
