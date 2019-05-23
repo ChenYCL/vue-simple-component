@@ -1,17 +1,21 @@
 <template>
-  <div class="nav-bar" :style="`background:${color}`">
-    <div style="text-align: left">
-      <i v-if="leftShow&&leftIcon" @click="goBack" class="icon" :style="`background-image:url('${leftIcon}')`"></i>
-      <i v-if="leftShow&&!leftIcon" @click="goBack" class="icon icon-default"></i>
+    <div class="nav-bar" :style="`background:${color}`">
+        <div style="text-align: left">
+            <i v-if="leftShow&&leftIcon" @click="goBack" class="icon"
+               :style="`background-image:url('${leftIcon}')`"></i>
+            <i v-if="leftShow&&!leftIcon" @click="goBack" class="icon icon-default"></i>
+        </div>
+        <div style="text-align: center" class="_title">{{title}}</div>
+        <div style="text-align: right">
+            <i @click="rEv" class="icon2" v-if="rightIcon_left"
+               :style="`background-image:url('${rightIcon_left}')`"></i>
+            <i @click="rEv" class="icon1" v-if="rightIcon&&!$slots.hasOwnProperty('rightContent')"
+               :style="`background-image:url('${rightIcon}')`"></i>
+            <span class="rText" :style="`color:${rColor}`" @click="rEv"
+                  v-if="rText&&!$slots.hasOwnProperty('rightContent')">{{rText}}</span>
+            <slot name="rightContent"></slot>
+        </div>
     </div>
-    <div style="text-align: center" class="_title">{{title}}</div>
-    <div style="text-align: right">
-       <i @click="rEv" class="icon2" v-if="rightIcon_left" :style="`background-image:url('${rightIcon_left}')`"></i>
-      <i @click="rEv" class="icon1" v-if="rightIcon&&!$slots.hasOwnProperty('rightContent')" :style="`background-image:url('${rightIcon}')`"></i>
-      <span class="rText" :style="`color:${rColor}`" @click="rEv" v-if="rText&&!$slots.hasOwnProperty('rightContent')">{{rText}}</span>
-      <slot name="rightContent"></slot>
-    </div>
-  </div>
 </template>
 <script>
   /**
@@ -22,9 +26,9 @@
   export default {
     name: "index",
     props: {
-      color:{ // 背景色
-        type:String,
-        default:''
+      color: { // 背景色
+        type: String,
+        default: ''
       },
       leftIcon: { //  左侧图标地址
         type: String,
@@ -42,7 +46,7 @@
         type: String,
         default: ''
       },
-    rightIcon_left: { // 右侧图标地址2  内侧右边
+      rightIcon_left: { // 右侧图标地址2  内侧右边
         type: String,
         default: ''
       },
@@ -50,13 +54,13 @@
         type: Function,
         default: null
       },
-      rText:{
-        type:String,
-        default:''
+      rText: {
+        type: String,
+        default: ''
       },
-      rColor:{
-        type:String,
-        default:''
+      rColor: {
+        type: String,
+        default: ''
       },
       rightEv: { // 右侧event
         type: Function,
@@ -92,67 +96,71 @@
   }
 </script>
 <style scoped lang="scss">
-    .rightIcon2{
+    .rightIcon2 {
         border: 1px solid red;
     }
-  .nav-bar {
-    box-sizing: content-box;
-    height: 24px;
-    padding: 10px 14px !important;
-    font-size: 18px;
-    background: #272E73;
-    font-weight: 500;
-    color: white;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
 
-    &.div {
-      line-height: 24px;
-      position: relative;
-    }
+    .nav-bar {
+        box-sizing: content-box;
+        height: 24px;
+        padding: 10px 14px !important;
+        font-size: 18px;
+        background: #272E73;
+        font-weight: 500;
+        color: white;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
 
-    .icon {
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      border-radius: 50%;
-      border: 0;
-      display: inline-block;
-      height: 24px;
-      width: 24px;
-    }
-    .icon-default{
-      background-image: url("../../assets/top_return.png");
-    }
-    ._title{
-      font-size:18px;
-      font-weight:500;
-      color:rgba(255,255,255,1);
-      line-height: 24px !important;
-    }
+        &.div {
+            line-height: 24px;
+            position: relative;
+        }
 
-    .rText{
-      color: white;
-      font-size: 14px;
-      font-weight:400;
-    }
+        .icon {
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            border-radius: 50%;
+            border: 0;
+            display: inline-block;
+            height: 24px;
+            width: 24px;
+        }
 
-    .icon1 {
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      display: inline-block;
-      height: 24px;
-      width: 24px;
+        .icon-default {
+            background-image: url("../../assets/top_return.png");
+        }
+
+        ._title {
+            font-size: 18px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 1);
+            line-height: 24px !important;
+        }
+
+        .rText {
+            color: white;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .icon1 {
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            display: inline-block;
+            height: 24px;
+            width: 24px;
+        }
+
+        .icon2 {
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            display: inline-block;
+            height: 24px;
+            width: 24px;
+            margin-right: 10px;
+        }
     }
-    .icon2 {
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      display: inline-block;
-      height: 24px;
-      width: 24px;
-      margin-right: 10px;
-    }
-  }
 </style>

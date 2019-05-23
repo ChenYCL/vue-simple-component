@@ -1,5 +1,6 @@
 <template>
     <div style="text-align:center">
+        <t-nav title="我是导航条" color="green" r-text="右侧文字"></t-nav>
         <p style="color: red">1.sheet</p>
         <button style="background: yellow;border: 1px solid yellowgreen" @click="$refs.sheet.show=true">点击sheet</button>
         <sheet ref="sheet"></sheet>
@@ -43,7 +44,7 @@
   import sms from "../components/smsCountDown";
   import slider from "../components/slider";
   import mprogress from "../components/mprogress";
-  import nav from '../components/nav/index'
+  import tNav from '../components/nav/index.vue'
   import sheet from '../components/ch_bottom-sheet/index'
   import bar from '../components/lineBar/index'
   import modal from '../components/modal/index.vue'
@@ -60,7 +61,7 @@
       sms,
       slider,
       mprogress,
-      nav,
+      tNav,
       sheet,
       bar,
       modal,
